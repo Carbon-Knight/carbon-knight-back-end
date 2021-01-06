@@ -9,7 +9,7 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: KEY
+    secure: vG4PxKwfwou+GsSJXD+JFlq5/HT+SJb9aIqRwR8rwW61uXoC90pKWF7tzjWd3WRr7YpX5miORgeAEfdwfHOpCHGqhpM/2csdrqt/vJtFozXPtvFlO0qwapzgvfmGpqV2XTzffyJnNpEHcwbtVtc8mZpzahbV+7pUEMchCVbLdwwHQ4bxe0QOcah7j+hplTH7MmRdODd3rx2qY68Vui7fe5oEV+opIc+5lSmGLRSla9t7xJqyz8WLmILzN1mWKNHv/T0D5zpoWgl+AQgbSeCxbF9vu51U6dO7K7GIUjaSs8tkr87QzSsfDLhBm7CzW7w3wZA1fuXTaNTEW5OuIoW51BFAa1LbxrdvVfOAnPIEwG3wG8gSCnQK1UFNEKzgPJ4EN9s8ZQyY27uEVBq2n8+0oZ/YPmDKiVi87sesXJ+1uy13HxXNZAPt2jYjXdLFnDjxzlCCLA/FMcNrNY14TAgw4Nb6wCJHKoL3PnQmkhi4sDf1OYW+S4Fel6L1Fv5rSo3PNiWh6WRYp7BESlWCiv6PxyWZP3XPivjMsvp/GBfp0yl2cqVHWUO2gkPVQyH+pqq/lt7xF/TkLHbJbJpNo8bBJl45B0nChz1muYAjrs++0Z1sj8knrKeDJXBZTW4zpFEoXWQav0Kg28aUtuUbc0V8K1Cug9hms66aRb216+yDIyo=
   on:
     repo: Carbon-Knight/carbon-knight-back-end
   run: rails db:migrate
