@@ -1,14 +1,15 @@
 language: ruby
-cache:
-- bundler
-before_script:
-- bundle exec rake db:create
-- bundle exec rake db:migrate
-- bundle exec rake assets:precompile
+rbenv:
+- 2.5.3
+addons:
+  postgresql: 9.6
+script:
+- bundle exec rails db:{create,migrate} RAILS_ENV=test
+- bundle exec rspec
 deploy:
   provider: heroku
   api_key:
     secure: KEY
-  app: carbon-knight-back-end
   on:
-    repo: Carbon-Knight/Carbon-Knight-Back-End
+    repo: Carbon-Knight/carbon-knight-back-end
+  run: rails db:migrate
