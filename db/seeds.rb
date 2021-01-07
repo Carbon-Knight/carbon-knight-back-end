@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Car.destroy_all
+
+5.times do |i|
+  Car.create!(
+    user_id: i + 1, 
+    make: 'subaru', 
+    model: 'forester', 
+    year: '20010', 
+    mpg: 25,
+    fuel_type: 'gasoline'
+  )
+end

@@ -13,5 +13,7 @@ module Types
     def test_field
       "Hello World!"
     end
+
+    field :fetch_user_cars, resolver: Queries::FetchUserCars
   end
 end
