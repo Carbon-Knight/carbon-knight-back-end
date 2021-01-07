@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe CarMonthlyMileage, type: :model do
   describe 'validations' do
      it { should validate_presence_of :car_id }
+     it { should validate_presence_of :footprint_id }
      it { should validate_presence_of :total_mileage }
      it { should validate_presence_of :month }
      it { should validate_presence_of :year }
@@ -10,6 +11,6 @@ RSpec.describe CarMonthlyMileage, type: :model do
 
   describe 'relationships' do
     it { should belong_to :car }
-    it { should have_one :footprint }
+    it { should belong_to :footprint }
   end
 end
