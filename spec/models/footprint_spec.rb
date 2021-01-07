@@ -6,8 +6,4 @@ RSpec.describe Footprint, type: :model do
      it { should validate_presence_of :offset_cost_total }
      it { should validate_presence_of :offset_cost_currency }
   end
-
-  describe 'relationships' do
-    it { should belong_to :car_monthly_mileage }
-  end
 end
