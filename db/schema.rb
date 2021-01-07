@@ -10,19 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_07_011624) do
+ActiveRecord::Schema.define(version: 2021_01_07_025459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "car_monthly_mileages", force: :cascade do |t|
     t.bigint "car_id"
+    t.bigint "footprint_id"
     t.integer "total_mileage"
     t.string "month"
     t.string "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["car_id"], name: "index_car_monthly_mileages_on_car_id"
+    t.index ["footprint_id"], name: "index_car_monthly_mileages_on_footprint_id"
   end
 
   create_table "cars", force: :cascade do |t|
@@ -37,15 +39,13 @@ ActiveRecord::Schema.define(version: 2021_01_07_011624) do
   end
 
   create_table "footprints", force: :cascade do |t|
-    t.bigint "car_monthly_mileage_id"
     t.float "carbon_in_kg"
     t.float "offset_cost_total"
     t.string "offset_cost_currency"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["car_monthly_mileage_id"], name: "index_footprints_on_car_monthly_mileage_id"
   end
 
   add_foreign_key "car_monthly_mileages", "cars"
-  add_foreign_key "footprints", "car_monthly_mileages"
+  add_foreign_key "car_monthly_mileages", "footprints"
 end
