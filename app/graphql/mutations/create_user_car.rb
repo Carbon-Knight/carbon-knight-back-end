@@ -9,7 +9,7 @@ module Mutations
     argument :mpg, Integer, required: true 
     argument :fuel_type, String, required: true 
     
-    field :created_car, Types::CarType, null: true
+    field :car, Types::CarType, null: true
 
     def resolve(args)
       car = Car.create(
@@ -20,7 +20,7 @@ module Mutations
         mpg: args[:mpg],
         fuel_type: args[:fuel_type]
       )
-      {created_car: car}
+      {car: car}
     end
 
   end
