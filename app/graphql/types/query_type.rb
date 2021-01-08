@@ -1,17 +1,18 @@
 module Types
   class QueryType < Types::BaseObject
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
+    # /cars
+    field :cars, [Types::CarType], null: false
 
-    # How to define query types: 
-    # field <:query_name>, resolver: Queries::ClassName(defined in query_file.rb)
-    # resolver: executes the logic in the resolve method of the above class 
+    def cars
+      Car.all
+    end
 
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World!"
+    field :car, Types::CarType, null: false do
+      argument :id, ID, required: true
+    end
+
+    def car(id:)
+      Car.find(id)
     end
 
     field :fetch_user_cars, resolver: Queries::FetchUserCars

@@ -8,8 +8,9 @@ module Mutations
     argument :year, String, required: false 
     argument :mpg, Integer, required: true 
     argument :fuel_type, String, required: true 
-    
+
     field :created_car, Types::CarType, null: true
+    field :errors, [String], null: false
 
     def resolve(args)
       car = Car.create(
@@ -20,8 +21,17 @@ module Mutations
         mpg: args[:mpg],
         fuel_type: args[:fuel_type]
       )
-      {created_car: car}
+      if car.save
+        {
+          created_car: car,
+          errors: []
+        }
+      else
+        {
+          car: nil,
+          errors: car.errors.full_messages
+        }
+      end
     end
-
   end
 end
