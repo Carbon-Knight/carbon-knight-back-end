@@ -10,11 +10,11 @@ Car.destroy_all
 
 5.times do |i|
   Car.create!(
-    user_id: i + 1, 
-    make: 'subaru', 
-    model: 'forester', 
-    year: '20010', 
-    mpg: 25,
+    user_id: i + 1,
+    make: Faker::Vehicle.make,
+    model: Faker::Vehicle.model,
+    year: Faker::Vehicle.year,
+    mpg: Faker::Number.within(range: 8..50),
     fuel_type: 'gasoline'
   )
 end
