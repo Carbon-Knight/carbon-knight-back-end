@@ -15,5 +15,6 @@ module Types
     end
 
     field :fetch_user_cars, resolver: Queries::FetchUserCars
+    field :fetch_user_month_footprint, resolver: Queries::FetchUserMonthFootprint
   end
 end
