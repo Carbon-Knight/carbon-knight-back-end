@@ -40,7 +40,6 @@ describe 'Car Monthly Mileage Query' do
 
     post graphql_path, params: { query: query_string}
     result = JSON.parse(response.body, symbolize_names: true)
-    require "pry";binding.pry 
     expect(result[:data][:fetchUserMonthFootprint][:footprint][:carbonInKg]).to eq(14.4)
     expect(result[:data][:fetchUserMonthFootprint][:footprint][:offsetCostTotal]).to eq(0.82)
     expect(result[:data][:fetchUserMonthFootprint][:footprint][:offsetCostCurrency]).to eq('USD')
