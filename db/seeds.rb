@@ -13,7 +13,7 @@ Car.destroy_all
     user_id: i + 1, 
     make: 'subaru', 
     model: 'forester', 
-    year: '20010', 
+    year: '2010', 
     mpg: 25,
     fuel_type: 'gasoline'
   )
