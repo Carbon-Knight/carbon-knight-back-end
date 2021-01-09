@@ -15,7 +15,7 @@ describe 'Car Monthly Mileage Query' do
       offset_cost_total: 0.82,
       offset_cost_currency: 'USD'
     )
-    car_monthly_mileage = CarMonthlyMileage.create(
+    CarMonthlyMileage.create(
       car_id: car.id,
       footprint_id: footprint.id,
       total_mileage: 1090,
