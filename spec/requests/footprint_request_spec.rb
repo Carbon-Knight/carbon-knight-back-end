@@ -25,7 +25,7 @@ describe 'Car Monthly Mileage Query' do
 
     query_string = <<-GRAPHQL
       query {
-              fetchUserMonthFootprint(userId: 1, month: "July") {
+              fetchUserCarMonthFootprint(userId: 1, month: "July") {
                 totalMileage
                 footprint {
                   carbonInKg
@@ -40,38 +40,9 @@ describe 'Car Monthly Mileage Query' do
 
     post graphql_path, params: { query: query_string}
     result = JSON.parse(response.body, symbolize_names: true)
-    expect(result[:data][:fetchUserMonthFootprint][:footprint][:carbonInKg]).to eq(14.4)
-    expect(result[:data][:fetchUserMonthFootprint][:footprint][:offsetCostTotal]).to eq(0.82)
-    expect(result[:data][:fetchUserMonthFootprint][:footprint][:offsetCostCurrency]).to eq('USD')
-    expect(result[:data][:fetchUserMonthFootprint][:totalMileage]).to eq(1090)
+    expect(result[:data][:fetchUserCarMonthFootprint][:footprint][:carbonInKg]).to eq(14.4)
+    expect(result[:data][:fetchUserCarMonthFootprint][:footprint][:offsetCostTotal]).to eq(0.82)
+    expect(result[:data][:fetchUserCarMonthFootprint][:footprint][:offsetCostCurrency]).to eq('USD')
+    expect(result[:data][:fetchUserCarMonthFootprint][:totalMileage]).to eq(1090)
   end
 end
-
-#require 'rails_helper'
-#
-#describe "User Query" do
-#  it "returns a user based on ID" do
-#    user =  User.create!(username: 'test')
-#    user_id = user.id
-#    query_string = <<-GRAPHQL
-#      query {
-#        user(id: #{user_id}) {
-#          id
-#          username
-#        }
-#      }
-#      GRAPHQL
-#
-#      post graphql_path, params: {query: query_string}
-#      result = JSON.parse(response.body)
-#      expect(result).to eq({
-#        "data" => {
-#          "user" => {
-#            "id"=>1,
-#            "username"=>"test"
-#          }
-#        }
-#      }
-#    )
-#  end
-#end

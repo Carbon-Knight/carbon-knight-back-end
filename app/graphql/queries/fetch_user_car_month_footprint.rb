@@ -1,5 +1,5 @@
 module Queries
-  class FetchUserMonthFootprint < Queries::BaseQuery
+  class FetchUserCarMonthFootprint < Queries::BaseQuery
     type Types::CarMonthlyMileage, null: true
 
     argument :user_id, Integer, required: true
