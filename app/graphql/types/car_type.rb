@@ -7,5 +7,6 @@ module Types
     field :year, Integer, null: true
     field :mpg, Integer, null: false
     field :fuel_type, String, null: false
+    field :car_monthly_mileage, Types::CarMonthlyMileage, null: true
   end
 end

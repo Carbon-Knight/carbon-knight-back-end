@@ -10,29 +10,41 @@ describe 'Car Monthly Mileage Query' do
       mpg: 14,
       fuel_type: 'gasoline'
     )
-    footprint = Footprint.new(
+    footprint = Footprint.create(
       carbon_in_kg: 14.4,
       offset_cost_total: 0.82,
       offset_cost_currency: 'USD'
     )
-    car_monthly_mileage = CarMonthlyMileage.new(
+    car_monthly_mileage = CarMonthlyMileage.create(
       car_id: car.id,
       footprint_id: footprint.id,
       total_mileage: 1090,
       month: 'July',
-      year: 2020
+      year: '2020'
     )
 
     query_string = <<-GRAPHQL
       query {
-        fetchUserMonthFootprint(userID: 1
-          month: 'July'
-          {
-            carbonInKg
-          }
-        }
+              fetchUserMonthFootprint(userId: 1, month: "July") {
+                totalMileage
+                footprint {
+                  carbonInKg
+                  offsetCostTotal
+                  offsetCostCurrency
+                }
+              }
+            }
+        
       
     GRAPHQL
+
+    post graphql_path, params: { query: query_string}
+    result = JSON.parse(response.body, symbolize_names: true)
+    require "pry";binding.pry 
+    expect(result[:data][:fetchUserMonthFootprint][:footprint][:carbonInKg]).to eq(14.4)
+    expect(result[:data][:fetchUserMonthFootprint][:footprint][:offsetCostTotal]).to eq(0.82)
+    expect(result[:data][:fetchUserMonthFootprint][:footprint][:offsetCostCurrency]).to eq('USD')
+    expect(result[:data][:fetchUserMonthFootprint][:totalMileage]).to eq(1090)
   end
 end
 
