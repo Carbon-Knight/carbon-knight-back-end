@@ -5,7 +5,7 @@ module Mutations
     argument :user_id, Integer, required: true 
     argument :make, String, required: false 
     argument :model, String, required: false 
-    argument :year, String, required: false 
+    argument :year, Integer, required: false 
     argument :mpg, Integer, required: true 
     argument :fuel_type, String, required: true 
     
