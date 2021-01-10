@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:4567/api/v1/carbonfootprint?fuel_efficiency=22&fuel_type=gasoline&trip_distance=9001
+    uri: https://cloverly-microservice.herokuapp.com/api/v1/carbonfootprint?fuel_efficiency=22&fuel_type=gasoline&trip_distance=9001
     body:
       encoding: US-ASCII
       string: ''
@@ -16,20 +16,24 @@ http_interactions:
   response:
     status:
       code: 200
-      message: OK
+      message: 'OK '
     headers:
+      Connection:
+      - keep-alive
       Content-Type:
       - application/json
       Content-Length:
       - '100'
       X-Content-Type-Options:
       - nosniff
-      Connection:
-      - keep-alive
       Server:
-      - thin
+      - WEBrick/1.4.2 (Ruby/2.5.3/2018-10-18)
+      Date:
+      - Sun, 10 Jan 2021 03:07:44 GMT
+      Via:
+      - 1.1 vegur
     body:
       encoding: UTF-8
       string: '{"data":{"equivalent_carbon_in_kg":3636.787,"cloverly_offset_cost":{"currency":"USD","total":8.27}}}'
-  recorded_at: Sat, 09 Jan 2021 20:35:38 GMT
+  recorded_at: Sun, 10 Jan 2021 03:07:44 GMT
 recorded_with: VCR 6.0.0

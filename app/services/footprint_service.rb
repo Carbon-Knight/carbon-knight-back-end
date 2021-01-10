@@ -8,7 +8,7 @@ class FootprintService
     private
 
     def conn
-      Faraday.new(url: ENV['MICROSERVICE_URL'])
+      Faraday.new(url: 'https://cloverly-microservice.herokuapp.com')
     end
   end
 end
