@@ -17,5 +17,6 @@ module Types
 
     field :fetch_user_cars, resolver: Queries::FetchUserCars
     field :fetch_user_car_month_footprint, resolver: Queries::FetchUserCarMonthFootprint
+    field :fetch_user_aggregate_footprint, resolver: Queries::FetchUserAggregateFootprint
   end
 end
