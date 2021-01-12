@@ -17,6 +17,8 @@ class FootprintFacade
         offset_cost_total: response[:cloverly_offset_cost][:total],
         offset_cost_currency: response[:cloverly_offset_cost][:currency]
       )
+
+      car_monthly_mileage.footprint
     end
   end
 end

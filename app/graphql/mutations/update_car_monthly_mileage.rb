@@ -10,6 +10,7 @@ module Mutations
     field :footprint, Types::FootprintType, null: true
 
     def resolve(args)
+
       car = Car.find(args[:car_id])
 
       car_monthly_mileage = CarMonthlyMileage.find_by(car_id: car.id, month: args[:month], year: args[:year])
@@ -20,8 +21,6 @@ module Mutations
       {
         footprint: footprint
       }
-
-      
     end
   end
 end
