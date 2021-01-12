@@ -15,6 +15,5 @@ module Queries
 
       {"footprints" => footprints}
     end
-
   end
 end
