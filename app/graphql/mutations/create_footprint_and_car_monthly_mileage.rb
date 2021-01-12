@@ -5,7 +5,7 @@ module Mutations
     argument :total_mileage, Integer, required: true
     argument :car_id, Integer, required: true
     argument :month, String, required: true
-    argument :year, String, required: true
+    argument :year, Integer, required: true
 
     field :footprint, Types::FootprintType, null: true
 

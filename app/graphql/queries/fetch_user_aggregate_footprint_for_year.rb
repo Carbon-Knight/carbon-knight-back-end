@@ -3,7 +3,7 @@ module Queries
     type Types::AggregateFootprintForYearType, null: true
 
     argument :user_id, Integer, required: true
-    argument :year, String, required: true
+    argument :year, Integer, required: true
 
     def resolve(args)
       months = Date::MONTHNAMES[1..12]

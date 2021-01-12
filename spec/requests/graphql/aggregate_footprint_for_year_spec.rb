@@ -43,7 +43,7 @@ describe 'Fetch aggregate footprint query for year' do
       footprint_id: footprint_1.id,
       total_mileage: 1090,
       month: 'March',
-      year: '2020'
+      year: 2020
     )
 
     CarMonthlyMileage.create(
@@ -51,7 +51,7 @@ describe 'Fetch aggregate footprint query for year' do
       footprint_id: footprint_2.id,
       total_mileage: 1090,
       month: 'June',
-      year: '2020'
+      year: 2020
     )
 
     CarMonthlyMileage.create(
@@ -59,13 +59,13 @@ describe 'Fetch aggregate footprint query for year' do
       footprint_id: footprint_3.id,
       total_mileage: 1090,
       month: 'January',
-      year: '2020'
+      year: 2020
     )
 
     query_string = <<-GRAPHQL
 
     query {
-      fetchUserAggregateFootprintForYear(userId: 1, year: "2020"){
+      fetchUserAggregateFootprintForYear(userId: 1, year: 2020){
         footprints{
           month
           carbonInKg
