@@ -37,7 +37,6 @@ describe "As a User " do
     expect(@cmm.total_mileage).to eq(22)
 
     @foot.reload
-    binding.pry
     expect(@foot.carbon_in_kg).to_not eq(12444.511)
     expect(@foot.carbon_in_kg).to eq(7.822)
     expect(@foot.offset_cost_total).to_not eq(28.14)
