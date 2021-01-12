@@ -42,7 +42,7 @@ describe 'Fetch aggregate footprint query for year' do
       car_id: car_1.id,
       footprint_id: footprint_1.id,
       total_mileage: 1090,
-      month: 'march',
+      month: 'March',
       year: '2020'
     )
 
@@ -50,7 +50,7 @@ describe 'Fetch aggregate footprint query for year' do
       car_id: car_2.id,
       footprint_id: footprint_2.id,
       total_mileage: 1090,
-      month: 'june',
+      month: 'June',
       year: '2020'
     )
 
@@ -58,25 +58,32 @@ describe 'Fetch aggregate footprint query for year' do
       car_id: car_2.id,
       footprint_id: footprint_3.id,
       total_mileage: 1090,
-      month: 'january',
+      month: 'January',
       year: '2020'
     )
 
     query_string = <<-GRAPHQL
-      query {
-        fetchUserAggregateFootprintForYear(userId: 1, year: "2020"){
+
+    query {
+      fetchUserAggregateFootprintForYear(userId: 1, year: "2020"){
+        footprints{
+          month
           carbonInKg
+          }
         }
       }
 
     GRAPHQL
 
+
     post graphql_path, params: { query: query_string}
     result = JSON.parse(response.body, symbolize_names: true)
-    require "pry"; binding.pry
-
-    # expect(result[:data].class).to eq(Hash)
-    # expect(result[:data][:fetchUserAggregateFootprintForYear])
-    # expect(result[:data][:fetchUserAggregateFootprintForYear][:carbonInKg]).to eq(48.7)
+    
+    expect(result[:data].class).to eq(Hash)
+    expect(result[:data][:fetchUserAggregateFootprintForYear].class).to eq(Hash)
+    expect(result[:data][:fetchUserAggregateFootprintForYear][:footprints].class).to eq(Array)
+    expect(result[:data][:fetchUserAggregateFootprintForYear][:footprints].first.class).to eq(Hash)
+    expect(result[:data][:fetchUserAggregateFootprintForYear][:footprints].first.has_key?(:month)).to eq(true)
+    expect(result[:data][:fetchUserAggregateFootprintForYear][:footprints].first.has_key?(:carbonInKg)).to eq(true)
   end
 end
