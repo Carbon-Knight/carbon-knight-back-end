@@ -6,17 +6,17 @@ module Queries
     argument :year, String, required: true
 
     def resolve(user_id:, year:)
+      z = Date::MONTHNAMES[1..12]
       x = Footprint.aggregate_footprint_for_year(user_id, year)
-      require "pry"; binding.pry
+      array = []
+      index = 0
+      z.length.times do
+        array << {'month' => z[index],'carbon_in_kg' => x[z[index].downcase]}
+        index += 1
+      end
+      array
     end
+
   end
 end
-
-
-# code from PR gives error
-# x = [#<Footprint:0x00007f9e2e1c6d48 id: nil>,
- #<Footprint:0x00007f9e2e1c6bb8 id: nil>,
- #<Footprint:0x00007f9e2e1c6a00 id: nil>]
-
-# Previous code gives
-# x = {:carbon_in_kg=>{"July"=>28.6, "June"=>28.6, "March"=>20.1}}
+{"query": "{\n  fetchUserAggregateFootprintForYear(userId: 239, year: \"2077\"){\nmonth\ncarbonInKg\n}\n}"}
