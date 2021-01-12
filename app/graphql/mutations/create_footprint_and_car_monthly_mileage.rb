@@ -18,7 +18,7 @@ module Mutations
         footprint_id: footprint.id,
         car_id: car.id,
         total_mileage: args[:total_mileage],
-        month: args[:month].downcase,
+        month: args[:month],
         year: args[:year]
       )
       {
