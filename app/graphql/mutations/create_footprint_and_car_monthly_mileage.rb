@@ -14,17 +14,16 @@ module Mutations
       footprint = FootprintFacade.create_footprint(car, args[:total_mileage])
 
 
-      car_monthly_mileage = CarMonthlyMileage.create(
+      CarMonthlyMileage.create(
         footprint_id: footprint.id,
         car_id: car.id,
         total_mileage: args[:total_mileage],
-        month: args[:month],
+        month: args[:month].downcase,
         year: args[:year]
       )
       {
         footprint: footprint
       }
-
     end
   end
 end
