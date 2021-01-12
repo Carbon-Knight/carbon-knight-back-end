@@ -20,31 +20,10 @@ class Footprint < ApplicationRecord
   end
 
   def self.aggregate_footprint_for_year(user_id, year)
-    x = Footprint.joins(car_monthly_mileage: :car)
+    Footprint.joins(car_monthly_mileage: :car)
     .select('car_monthly_mileages.month')
     .where('cars.user_id = ? AND car_monthly_mileages.year = ?', "#{user_id}", "#{year}")
     .group(:month)
     .sum('carbon_in_kg')
-
-    y = Footprint.joins(car_monthly_mileage: :car)
-    .select('car_monthly_mileages.month, sum(carbon_in_kg) as footprint')
-    .where('cars.user_id = ? AND car_monthly_mileages.year = ?', "#{user_id}", "#{year}")
-    .group(:month)
-
-    require "pry"; binding.pry
   end
 end
-
-#code from PR
-# Footprint.joins(car_monthly_mileage: :car)
-# .select('car_monthly_mileages.month, sum(carbon_in_kg) as footprint')
-# .where('cars.user_id = ? AND car_monthly_mileages.year = ?', "#{user_id}", "#{year}")
-# .group(:month)
-
-
-
-# Footprint.joins(car_monthly_mileage: :car)
-# .select('car_monthly_mileages.month')
-# .where('cars.user_id = ? AND car_monthly_mileages.year = ?', "#{user_id}", "#{year}")
-# .group(:month)
-# .sum('carbon_in_kg')
