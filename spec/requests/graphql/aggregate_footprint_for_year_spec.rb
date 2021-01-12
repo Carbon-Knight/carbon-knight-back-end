@@ -42,7 +42,7 @@ describe 'Fetch aggregate footprint query for year' do
       car_id: car_1.id,
       footprint_id: footprint_1.id,
       total_mileage: 1090,
-      month: 'March',
+      month: 'march',
       year: '2020'
     )
 
@@ -50,7 +50,7 @@ describe 'Fetch aggregate footprint query for year' do
       car_id: car_2.id,
       footprint_id: footprint_2.id,
       total_mileage: 1090,
-      month: 'June',
+      month: 'june',
       year: '2020'
     )
 
@@ -58,7 +58,7 @@ describe 'Fetch aggregate footprint query for year' do
       car_id: car_2.id,
       footprint_id: footprint_3.id,
       total_mileage: 1090,
-      month: 'July',
+      month: 'january',
       year: '2020'
     )
 
@@ -68,7 +68,7 @@ describe 'Fetch aggregate footprint query for year' do
           carbonInKg
         }
       }
-      
+
     GRAPHQL
 
     post graphql_path, params: { query: query_string}
