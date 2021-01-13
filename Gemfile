@@ -17,6 +17,7 @@ group :development, :test do
   gem 'travis'
   gem 'faker'
   gem 'graphiql-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
