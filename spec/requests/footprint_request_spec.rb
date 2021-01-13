@@ -34,8 +34,8 @@ describe 'Car Monthly Mileage Query' do
                 }
               }
             }
-        
-      
+
+
     GRAPHQL
 
     post graphql_path, params: { query: query_string}

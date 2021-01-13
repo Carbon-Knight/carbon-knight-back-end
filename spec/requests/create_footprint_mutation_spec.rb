@@ -21,7 +21,7 @@ describe 'Create Footprint Mutation Query' do
           carId: #{@car.id}
           totalMileage: 9001
           month: "June"
-          year: "2077"
+          year: 2077
           }) {
             footprint {
               carbonInKg
