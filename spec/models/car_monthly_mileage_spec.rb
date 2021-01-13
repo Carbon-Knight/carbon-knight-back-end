@@ -104,7 +104,7 @@ RSpec.describe CarMonthlyMileage, type: :model do
 
       user_monthly_mileages = user_cars.map(&:car_monthly_mileages).flatten
 
-      user_years = CarMonthlyMileage.fetch_all_user_car_monthly_mileages(user_id)
+      user_years = CarMonthlyMileage.fetch_user_years(user_id)
       expected_years = user_monthly_mileages.map(&:year).uniq.sort
 
       expect(user_years).to eq expected_years
