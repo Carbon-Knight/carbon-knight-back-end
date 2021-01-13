@@ -78,7 +78,7 @@ describe 'Fetch aggregate footprint query for year' do
 
     post graphql_path, params: { query: query_string}
     result = JSON.parse(response.body, symbolize_names: true)
-    
+
     expect(result[:data].class).to eq(Hash)
     expect(result[:data][:fetchUserAggregateFootprintForYear].class).to eq(Hash)
     expect(result[:data][:fetchUserAggregateFootprintForYear][:footprints].class).to eq(Array)
