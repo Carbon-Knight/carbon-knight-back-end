@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'Car Monthly Mileage Query' do
-  it 'returns car monthly mileage info based on user id' do
+describe 'Fetch User Car Month Footprint Query' do
+  it 'returns car monthly footprint info based on user id' do
     car = Car.create(
       user_id: 1,
       make: 'Fiat',
