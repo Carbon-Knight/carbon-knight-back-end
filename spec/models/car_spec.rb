@@ -13,12 +13,4 @@ RSpec.describe Car, type: :model do
   describe "relationships" do
     it { should have_many :car_monthly_mileages }
   end
-
-  describe 'object methods' do
-    it 'recorded_years' do
-      binding.pry
-      car = create(:car, :with_records)
-
-    end
-  end
 end
