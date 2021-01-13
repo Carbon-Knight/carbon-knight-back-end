@@ -5,7 +5,7 @@ module Types
     field :footprint_id, Integer, null: true
     field :total_mileage, Integer, null: true
     field :month, String, null: true
-    field :year, String, null: true
+    field :year, Integer, null: true
     field :footprint, Types::FootprintType, null: true
   end
 end
