@@ -15,6 +15,14 @@ module Types
       Car.find(id)
     end
 
+    field :car_monthly_mileage, Types::CarMonthlyMileage, null: false do
+      argument :id, ID, required: true
+    end
+
+    def car_monthly_mileage(id:)
+      ::CarMonthlyMileage.find(id)
+    end
+
     field :fetch_user_cars, resolver: Queries::FetchUserCars
     field :fetch_user_car_month_footprint, resolver: Queries::FetchUserCarMonthFootprint
     field :fetch_user_aggregate_footprint_for_year, resolver: Queries::FetchUserAggregateFootprintForYear
