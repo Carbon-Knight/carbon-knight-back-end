@@ -94,5 +94,20 @@ RSpec.describe CarMonthlyMileage, type: :model do
       expect(all_mileages.last.footprint_id).to eq(expected_2.footprint_id)
       expect(all_mileages.last.total_mileage).to eq(expected_2.total_mileage)
     end
+
+    it 'can return all unique years where a user recorded a footprint' do
+      user_id = 1
+      other_user_id = 2
+
+      user_cars = create_list(:car, 2, :with_records, user_id: user_id)
+      other_cars = create_list(:car, 2, :with_records, user_id: other_user_id)
+
+      user_monthly_mileages = user_cars.map(&:car_monthly_mileages).flatten
+
+      user_years = CarMonthlyMileage.fetch_user_years(user_id)
+      expected_years = user_monthly_mileages.map(&:year).uniq.sort
+
+      expect(user_years).to eq expected_years
+    end
   end
 end

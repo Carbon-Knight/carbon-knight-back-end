@@ -1,6 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'simplecov'
 SimpleCov.start
+SimpleCov.add_filter ['app/controllers/graphql_controller.rb']
 
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
@@ -35,6 +36,10 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
+  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+
+  config.include FactoryBot::Syntax::Methods
+  config.infer_spec_type_from_file_location!
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
