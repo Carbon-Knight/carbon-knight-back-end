@@ -7,8 +7,6 @@ describe "As a User " do
     @foot = Footprint.create(id: 5, carbon_in_kg: 12444.511, offset_cost_total: 28.14, offset_cost_currency: 'USD')
 
     @cmm = CarMonthlyMileage.create(car_id: 5, footprint_id: 5, total_mileage: 35000, month: "March", year: "2011")
-
-
   end
 
   it "can update their carbon footprint", :vcr do
