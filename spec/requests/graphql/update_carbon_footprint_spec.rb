@@ -15,7 +15,7 @@ describe "As a User " do
     query_string = <<-GRAPHQL
     mutation {
       updateCarMonthlyMileage(input:{
-        carId: #{@car.id},
+        id: #{@cmm.id},
         totalMileage: 22,
         month: "#{@cmm.month}",
         year: "2011"
