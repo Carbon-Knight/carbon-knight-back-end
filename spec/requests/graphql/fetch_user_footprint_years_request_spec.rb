@@ -12,12 +12,12 @@ describe 'Fetch all years where a user had a carbon footprint' do
       query {
         fetchUserFootprintYears(userId: #{user_id}){
           years
-          }
         }
+      }
     GRAPHQL
 
     post graphql_path, params: { query: query_string}
-    binding.pry
+
     expect(response).to be_successful
 
     result = JSON.parse(response.body, symbolize_names: true)
@@ -29,7 +29,10 @@ describe 'Fetch all years where a user had a carbon footprint' do
     data = result[:data]
 
     expect(data).to have_key :fetchUserFootprintYears
-    expect(data[:fetchUserFootprintYears]).to be_an Array
-    expect(data[:fetchUserFootprintYears]).to eq CarMonthlyMileage.fetch_user_years(user_id)
+    expect(data[:fetchUserFootprintYears]).to be_a Hash
+    
+    expect(data[:fetchUserFootprintYears]).to have_key :years
+    expect(data[:fetchUserFootprintYears][:years]).to  be_an Array
+    expect(data[:fetchUserFootprintYears][:years]).to eq CarMonthlyMileage.fetch_user_years(user_id)
   end
 end
