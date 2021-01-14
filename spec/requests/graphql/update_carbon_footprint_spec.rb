@@ -15,10 +15,8 @@ describe "As a User " do
     query_string = <<-GRAPHQL
     mutation {
       updateCarMonthlyMileage(input:{
-        carId: #{@car.id},
-        totalMileage: 22,
-        month: "#{@cmm.month}",
-        year: "2011"
+        carMonthlyMileageId: #{@cmm.id},
+        totalMileage: 22
     }) {
       footprint {
         carbonInKg
@@ -30,8 +28,7 @@ describe "As a User " do
     GRAPHQL
 
     post graphql_path, params: {query: query_string}
-    result = JSON.parse(response.body,)
-
+    
     @cmm.reload
     expect(@cmm.total_mileage).to_not eq(35000)
     expect(@cmm.total_mileage).to eq(22)
