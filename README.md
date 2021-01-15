@@ -108,6 +108,9 @@ Contributions are what make this community such an amazing and fun place to lear
 4. Push to the Branch ```git push origin feature/NewGreatFeature```
 5. Open a new Pull Request!
 
+## Schema
+<img width="896" alt="Screen Shot 2021-01-14 at 8 58 49 PM" src="https://user-images.githubusercontent.com/63683549/104671670-42340080-56ac-11eb-87ca-84eeff961d7b.png">
+
 
 <!-- CONTACT -->
 ## Contact
