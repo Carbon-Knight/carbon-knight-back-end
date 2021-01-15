@@ -10,9 +10,9 @@ module Mutations
     def resolve(args)
       car_monthly_mileage = CarMonthlyMileage.find(args[:id])
 
-      cmm = car_monthly_mileage.update(total_mileage: args[:total_mileage])
+      car_monthly_mileage.update(total_mileage: args[:total_mileage])
 
-      footprint = FootprintFacade.update_footprint(cmm)
+      footprint = FootprintFacade.update_footprint(car_monthly_mileage)
       {
         footprint: footprint
       }
