@@ -227,6 +227,7 @@ DEPENDENCIES
   byebug
   factory_bot_rails
   faker
+  faraday
   figaro
   graphiql-rails
   graphql
