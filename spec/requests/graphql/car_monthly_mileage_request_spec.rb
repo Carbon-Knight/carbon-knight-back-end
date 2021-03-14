@@ -50,7 +50,6 @@ describe 'CarMonthlyMileageQuery' do
 
 
     post graphql_path, params: { query: query_string }
-    require "pry";binding.pry 
     result = JSON.parse(response.body, symbolize_names: true)
     expect(result[:data][:carMonthlyMileage][:id]).to eq("#{@cmm1.id}")
     expect(result[:data][:carMonthlyMileage][:month]).to eq(@cmm1.month)
