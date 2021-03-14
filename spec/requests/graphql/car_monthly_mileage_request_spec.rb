@@ -56,7 +56,7 @@ describe 'CarMonthlyMileageQuery' do
     expect(result[:data][:carMonthlyMileage][:year]).to eq(@cmm1.year)
     expect(result[:data][:carMonthlyMileage][:totalMileage]).to eq(@cmm1.total_mileage)
     expect(result[:data][:carMonthlyMileage][:car]).to have_key(:id)
-    expect(result[:data][:carMonthlyMileage][:car][:id]).to eq(@car.id)
+    expect(result[:data][:carMonthlyMileage][:car][:id]).to eq("#{@car.id}")
     expect(result[:data][:carMonthlyMileage][:car]).to have_key(:make)
     expect(result[:data][:carMonthlyMileage][:car][:make]).to eq(@car.make)
     expect(result[:data][:carMonthlyMileage][:car]).to have_key(:model)

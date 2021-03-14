@@ -7,5 +7,6 @@ module Types
     field :month, String, null: true
     field :year, Integer, null: true
     field :footprint, Types::FootprintType, null: true
+    field :car, Types::CarType, null: true
   end
 end

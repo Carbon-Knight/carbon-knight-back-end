@@ -29,11 +29,11 @@ http_interactions:
       Server:
       - WEBrick/1.4.2 (Ruby/2.5.3/2018-10-18)
       Date:
-      - Sun, 10 Jan 2021 03:07:44 GMT
+      - Sun, 14 Mar 2021 18:20:53 GMT
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
       string: '{"data":{"equivalent_carbon_in_kg":3636.787,"cloverly_offset_cost":{"currency":"USD","total":8.27}}}'
-  recorded_at: Sun, 10 Jan 2021 03:07:44 GMT
+  recorded_at: Sun, 14 Mar 2021 18:20:53 GMT
 recorded_with: VCR 6.0.0
